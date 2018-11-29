@@ -10,7 +10,7 @@ export default Ember.Component.extend({
   tabindex: Ember.computed.alias('tabIndex'),
 
   renderReCaptcha() {
-    if (Ember.isNone(window.grecaptcha)) {
+    if (Ember.isNone(window.grecaptcha) || Ember.isNone(window.grecaptcha.render)) {
       Ember.run.later(() => {
         this.renderReCaptcha();
       }, 500);
